@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 let db;
-let dbPromise = MongoClient.connect(process.env.MONGO_CONNECTION || process.env.MONGOHQ_URL)
+let dbPromise = Promise.resolve({}) //MongoClient.connect(process.env.MONGO_CONNECTION || process.env.MONGOHQ_URL)
   .then(database => (db = database))
   .then(() => db)
   .catch(err => console.log("Error connecting " + err));
